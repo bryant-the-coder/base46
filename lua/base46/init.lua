@@ -3,8 +3,8 @@ local g = vim.g
 local config = require("core.utils").load_config()
 
 M.get_theme_tb = function(type)
-  local default_path = "base46.themes." .. g.nvchad_theme
-  local user_path = "custom.themes." .. g.nvchad_theme
+  local default_path = "base46.themes." .. g.bryant_theme
+  local user_path = "custom.themes." .. g.bryant_theme
 
   local present1, default_theme = pcall(require, default_path)
   local present2, user_theme = pcall(require, user_path)
@@ -121,7 +121,7 @@ M.toggle_theme = function()
   local theme1 = themes[1]
   local theme2 = themes[2]
 
-  if g.nvchad_theme == theme1 or g.nvchad_theme == theme2 then
+  if g.bryant_theme == theme1 or g.bryant_theme == theme2 then
     if g.toggle_theme_icon == "   " then
       g.toggle_theme_icon = "   "
     else
@@ -129,13 +129,13 @@ M.toggle_theme = function()
     end
   end
 
-  if g.nvchad_theme == theme1 then
-    g.nvchad_theme = theme2
+  if g.bryant_theme == theme1 then
+    g.bryant_theme = theme2
 
     require("nvchad").reload_theme()
     require("nvchad").change_theme(theme1, theme2)
-  elseif g.nvchad_theme == theme2 then
-    g.nvchad_theme = theme1
+  elseif g.bryant_theme == theme2 then
+    g.bryant_theme = theme1
 
     require("nvchad").reload_theme()
     require("nvchad").change_theme(theme2, theme1)
